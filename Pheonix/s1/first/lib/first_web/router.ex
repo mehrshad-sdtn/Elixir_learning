@@ -19,6 +19,9 @@ defmodule FirstWeb.Router do
     get "/", PageController, :index
 
     get "/first", FirstController, :index
+
+    get "/first/:messenger", FirstController, :show
+
   end
 
   # Other scopes may use custom stacks.
