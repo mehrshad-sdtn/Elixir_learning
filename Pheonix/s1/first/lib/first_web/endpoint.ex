@@ -10,6 +10,7 @@ defmodule FirstWeb.Endpoint do
     signing_salt: "eDTobPpr"
   ]
 
+
   socket "/socket", FirstWeb.UserSocket,
     websocket: true,
     longpoll: false
@@ -50,5 +51,16 @@ defmodule FirstWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
+  plug :introspect
   plug FirstWeb.Router
+
+  def introspect(conn, _opts) do
+    IO.puts """
+    Verb: #{inspect(conn.method)}
+    Host: #{inspect(conn.host)}
+    Headers: #{inspect(conn.req_headers)}
+    """
+
+    conn
+  end
 end
