@@ -4,7 +4,7 @@ use Mix.Config
 config :discuss, Discuss.Repo,
   username: "postgres",
   password: "mehrshad1010",
-  database: "discuss_dev",
+  database: "discuss_db",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10

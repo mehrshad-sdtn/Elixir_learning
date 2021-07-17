@@ -6,7 +6,6 @@ defmodule Discuss.Repo.Migrations.CreateTopics do
       add :title, :string
 
       timestamps()
-
     end
 
   end

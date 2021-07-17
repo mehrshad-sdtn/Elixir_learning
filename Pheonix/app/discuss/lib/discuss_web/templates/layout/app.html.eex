@@ -11,13 +11,11 @@
   </head>
   <body>
     <nav class= "light-blue">
-       <div class= "nav-wrapper container">
-          <a href="/" class="brand-logo">
-            Discussions
-          </a>
-       </div>
-
+      <div class="nav-wrapper container">
+        <a href= "/" class="brand-logo"> Discussions </a>
+      </div>
     </nav>
+
 
     <main role="main" class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>

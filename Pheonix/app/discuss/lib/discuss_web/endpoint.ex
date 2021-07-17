@@ -7,7 +7,7 @@ defmodule DiscussWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_discuss_key",
-    signing_salt: "eMvBEAJB"
+    signing_salt: "90H5x8yO"
   ]
 
   socket "/socket", DiscussWeb.UserSocket,
