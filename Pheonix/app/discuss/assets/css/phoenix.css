@@ -52,6 +52,9 @@ select {
   display: block;
 }
 
+.collection-item {
+  font-size: 18px;
+}
 
 /* Headers */
 header {
