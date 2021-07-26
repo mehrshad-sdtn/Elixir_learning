@@ -30,16 +30,14 @@ defmodule DiscussWeb.TopicController do
 
   def edit(conn, %{"id" => topic_id}) do
     topic = Repo.get(Topic, topic_id)
-    changeset = Topic.changeset(topic)
+    changeset = Topic.changeset(topic, %{})
 
     render conn, "edit.html", changeset: changeset, topic: topic
   end
 
   def update(conn, %{"id" => topic_id, "topic" => topic}) do
-    changeset =
-    Topic
-    |> Repo.get(topic_id)
-    |> Topic.changeset(topic)
+    old_topic = Repo.get(Topic, topic_id)
+    changeset = Topic.changeset(old_topic, topic)
 
     case Repo.update(changeset) do
       {:ok, _topic} ->
@@ -48,7 +46,7 @@ defmodule DiscussWeb.TopicController do
         |> redirect(to: Routes.topic_path(conn, :index))
 
       {:error, changeset} ->
-        render conn, "edit.html", changeset: changeset
+        render conn, "edit.html", changeset: changeset,  topic: old_topic
     end
 
   end
