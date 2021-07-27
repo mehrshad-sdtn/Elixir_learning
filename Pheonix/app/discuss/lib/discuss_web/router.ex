@@ -28,6 +28,8 @@ defmodule DiscussWeb.Router do
 
   scope "/auth", DiscussWeb do
     pipe_through :browser
+
+    get "/github", AuthController, :request
   end
 
   # Other scopes may use custom stacks.
