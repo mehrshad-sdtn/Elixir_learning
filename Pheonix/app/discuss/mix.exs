@@ -20,7 +20,8 @@ defmodule Discuss.MixProject do
   def application do
     [
       mod: {Discuss.Application, []},
-      extra_applications: [:logger, :runtime_tools, :ueberauth, :ueberauth_github]
+      extra_applications: [:logger, :runtime_tools, :ueberauth, :ueberauth_github],
+      #applications: [:ueberauth_google]
     ]
   end
 
@@ -45,8 +46,17 @@ defmodule Discuss.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
+      {:oauth2, "~> 2.0", override: true},
       {:ueberauth, "~> 0.6"},
-      {:ueberauth_github, "~> 0.7"}
+      {:ueberauth_identity, "~> 0.2.3"},
+      {:ueberauth_facebook, "~> 0.8"},
+      {:ueberauth_github, "~> 0.7"},
+      {:ueberauth_google, "~> 0.8"},
+      {:ueberauth_slack, "~> 0.4"},
+      {:ueberauth_twitter, "~> 0.3.0"},
+      poison: "~> 3.1"
+
+
     ]
   end
 
