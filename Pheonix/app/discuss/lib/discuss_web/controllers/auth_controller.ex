@@ -18,7 +18,20 @@ defmodule DiscussWeb.AuthController do
       provider: "google"
     }
     changeset = User.changeset(%User{}, user_params)
-    insert_or_update_user(changeset)
+    signin(conn, changeset)
+  end
+
+  defp signin(conn, changeset) do
+    case insert_or_update_user(changeset) do
+      {:ok, user} ->
+      {:error, _reason} ->
+      conn
+      |> put_flash(:error, "Failed to authenticate.")
+      |> redirect(to: "/")
+
+   end
+
+    end
   end
 
 
