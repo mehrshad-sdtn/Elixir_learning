@@ -24,10 +24,14 @@ defmodule DiscussWeb.AuthController do
   defp signin(conn, changeset) do
     case insert_or_update_user(changeset) do
       {:ok, user} ->
+        conn
+        |> put_flash(:info, "Welcome")
+        |> put_session(:user_id, user.id)
+
       {:error, _reason} ->
-      conn
-      |> put_flash(:error, "Failed to authenticate.")
-      |> redirect(to: "/")
+        conn
+        |> put_flash(:error, "Error Signing In")
+        |> redirect(to: Routes.topic_path(conn, :index))
 
    end
 
