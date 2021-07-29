@@ -27,6 +27,7 @@ defmodule DiscussWeb.AuthController do
         conn
         |> put_flash(:info, "Welcome")
         |> put_session(:user_id, user.id)
+        |> redirect(to: Routes.topic_path(conn, :idnex))
 
       {:error, _reason} ->
         conn
