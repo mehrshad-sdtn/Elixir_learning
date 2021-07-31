@@ -7,6 +7,9 @@ defmodule DiscussWeb.Plugs.SetUser do
   alias Disucss.Router.Helpers
 
   def init(_params) do
+
+  end
+  def init(conn, _params) do
     user_id = get_session(conn, :user_id)
 
     cond do
@@ -14,12 +17,9 @@ defmodule DiscussWeb.Plugs.SetUser do
         assign(conn, :user, user)
 
       true ->
+        assign(conn, :user, nil)
 
     end
-  end
-
-  def call(conn, _params) do
-
   end
 
 end
