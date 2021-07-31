@@ -2,7 +2,7 @@ defmodule DiscussWeb.Plugs.RequireAuth do
   use DiscussWeb, :controller
   import Plug.Conn
 
-  alias Discuss.Router.Helpers
+  #alias Discuss.Router.Helpers
   def init(_params) do
 
   end
@@ -13,7 +13,7 @@ defmodule DiscussWeb.Plugs.RequireAuth do
     else
       conn
       |> put_flash(:error, "You must be logged in")
-      |> redirect(to: Helpers.topic_path(conn, :index))
+      |> redirect(to: Routes.topic_path(conn, :index))
       |> halt()
     end
   end
