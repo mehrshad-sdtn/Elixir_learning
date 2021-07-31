@@ -1,6 +1,6 @@
 defmodule DiscussWeb.Plugs.SetUser do
   import Plug.Conn
-  import Pheonix.Controller
+
 
   alias Discuss.Repo
   alias Discuss.User
@@ -8,7 +8,7 @@ defmodule DiscussWeb.Plugs.SetUser do
   def init(_params) do
 
   end
-  def init(conn, _params) do
+  def call(conn, _params) do
     user_id = get_session(conn, :user_id) #from Pheonix.Controller
 
 
