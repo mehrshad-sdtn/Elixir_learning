@@ -1,4 +1,8 @@
 defmodule DiscussWeb.Plugs.RequireAuth do
+  use DiscussWeb, :controller
+  import Plug.Conn
+
+  alias Discuss.Router.Helpers
   def init(_params) do
 
   end
